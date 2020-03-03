@@ -76,7 +76,7 @@ learning_rate = 0.1 #0.005
 
 neural = neuralNetwork(input_nodes, hidden_nodes, output_nodes, learning_rate)
 
-for i in range(1,10):
+for i in range(0,10):
     print("I am running %d"%i)
 # load the train data CSV file
     training_data = open("train.csv", 'r')
@@ -132,6 +132,6 @@ for record in test_list:
 scores_array = numpy.asarray(scores)
 print("Accuracy = ", (scores_array.sum() / scores_array.size) * 100, "%")
 
-# import dill # save the trained object as it is so that it can be used for prediction later on.
-# with open('nnnew2.dill', 'wb') as f:
-#     dill.dump(neural, f)
+import dill # save the trained object as it is so that it can be used for prediction later on.
+with open('nnnew2.dill', 'wb') as f:
+    dill.dump(neural, f)

@@ -27,8 +27,8 @@ from keras.models import Sequential
 
 ann = Sequential()
 ann.add(Dense(units=300,input_shape=(1024,)))
-ann.add(Dense(300))
-ann.add(Dense(1))
-ann.compile(optimizer='adam',loss='binary_crossentropy',metrics=['accuracy'])
+ann.add(Dense(300,activation='sigmoid'))
+ann.add(Dense(10))
+ann.compile(optimizer='adam',loss='categorical_crossentropy',metrics=['accuracy'])
 
 ann.fit(X_train,Y_train,batch_size=32,epochs=10)
